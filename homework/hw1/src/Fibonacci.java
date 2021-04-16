@@ -51,27 +51,46 @@ public class Fibonacci {
         }
     }
 
-    public static void main(String[] args) {
-        int[] input = {3, 10, 20};
-        Fibonacci fib = new Fibonacci();
-        for (int i: input) {
-            System.out.println("Recursive solution for: " + i);
-            System.out.println(fib.recursive(i));
-            System.out.println("Addition count: " + fib.getAddCount());
-            System.out.println();
-            fib.resetAddCount();
+    public int cubesRecurr(int n) {
+        if (n == 1) return 1;
+        return cubesRecurr(n - 1) + n * n * n;
+    }
 
-            System.out.println("Iterative solution for: " + i);
-            System.out.println(fib.iterative(i));
-            System.out.println("Addition count: " + fib.getAddCount());
-            System.out.println();
-            fib.resetAddCount();
+    public int cubes(int n) {
+        if (n == 1 || n == 0) return n;
 
-            System.out.println("Recursive Accumulator solution for: " + i);
-            System.out.println(fib.recursiveAccum(i));
-            System.out.println("Addition count: " + fib.getAddCount());
-            System.out.println();
-            fib.resetAddCount();
+        int result = 0;
+        for (int i = 1; i <= n; i++) {
+            result = result + i * i * i;
         }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+//        int[] input = {3, 10, 20};
+        Fibonacci fib = new Fibonacci();
+//        for (int i: input) {
+//            System.out.println("Recursive solution for: " + i);
+//            System.out.println(fib.recursive(i));
+//            System.out.println("Addition count: " + fib.getAddCount());
+//            System.out.println();
+//            fib.resetAddCount();
+//
+//            System.out.println("Iterative solution for: " + i);
+//            System.out.println(fib.iterative(i));
+//            System.out.println("Addition count: " + fib.getAddCount());
+//            System.out.println();
+//            fib.resetAddCount();
+//
+//            System.out.println("Recursive Accumulator solution for: " + i);
+//            System.out.println(fib.recursiveAccum(i));
+//            System.out.println("Addition count: " + fib.getAddCount());
+//            System.out.println();
+//            fib.resetAddCount();
+//        }
+        System.out.println(fib.cubesRecurr(5));
+        System.out.println(fib.cubes(5));
+
     }
 }
